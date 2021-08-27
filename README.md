@@ -1,22 +1,24 @@
-#Cli utility `ls`
+<h2>Cli utility `ls`</h2>
 
 **This is my first cli program in golang, by writing which I hope to get skills in developing cli programs in Go**
 
-##Build and run
+<h2>Build and run</h2>
+<h3>Before build cd to `/cmd`</h3>
 
-###Before build cd to `/cmd`
+**On unix like**
 
-*On unix like*
 ```
 go build main.go && ./main 
 ```
 
-*On windows*  
+**On windows**
+
 ```
 go build main.go && ./main.exe 
 ```
 
-## Run tests
+<h2>Run tests</h2>
+
 ```
 go test -v
 ```
