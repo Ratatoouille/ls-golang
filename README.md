@@ -1,9 +1,9 @@
-<h2>Cli utility `ls`</h2>
+<h2>Cli utility <code>ls</code></h2>
 
 **This is my first cli program in golang, by writing which I hope to get skills in developing cli programs in Go**
 
 <h2>Build and run</h2>
-<h3>Before build cd to `/cmd`</h3>
+<h3>Before build cd to <code>/cmd</code></h3>
 
 **On unix like**
 
