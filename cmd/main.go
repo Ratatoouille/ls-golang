@@ -13,12 +13,12 @@ func main() {
 			fmt.Println(err)
 		}
 
-		err = ls.Run(os.Stdout, currentDir)
+		err = ls.Run(os.Stdout, []string{currentDir})
 		if err != nil {
 			fmt.Println(err)
 		}
 	} else {
-		path := os.Args[1]
+		path := os.Args[1:]
 
 		err := ls.Run(os.Stdout, path)
 		if err != nil {
