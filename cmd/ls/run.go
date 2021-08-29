@@ -10,7 +10,7 @@ func Run(w io.Writer, path string) error {
 		return err
 	}
 
-	err = printFiles(w, files)
+	err = files.PrintFiles(w)
 	if err != nil {
 		return err
 	}
