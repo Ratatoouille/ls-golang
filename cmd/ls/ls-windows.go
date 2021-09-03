@@ -5,6 +5,7 @@ import (
 	"syscall"
 )
 
+// isHiddenWindows checks if the file is hidden in Windows
 func isHiddenWindows(filename string) (bool, error) {
 	pointer, err := syscall.UTF16PtrFromString(filename)
 	if err != nil {

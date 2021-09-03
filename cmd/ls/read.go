@@ -21,10 +21,8 @@ func readDir(root string) (f.FilesSlice, error) {
 
 			if osName != "windows" {
 				for _, file := range fileInfo {
-					if hidden, err := isHiddenLinux(file.Name()); !hidden && err == nil {
+					if hidden := isHiddenUnix(file.Name()); !hidden {
 						files.AddItem(file.Name())
-					} else if err != nil {
-						return nil, err
 					}
 				}
 			} else {
@@ -44,8 +42,6 @@ func readDir(root string) (f.FilesSlice, error) {
 		} else {
 			return f.FilesSlice{filepath.Base(root)}, nil
 		}
-	} else if err != nil {
-		return nil, err
 	} else {
 		return nil, err
 	}

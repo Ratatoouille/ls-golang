@@ -1,28 +1,28 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"os"
 	"unix-ls/cmd/ls"
 )
 
 func main() {
-	if len(os.Args) == 1 {
-		currentDir, err := os.Getwd()
-		if err != nil {
-			fmt.Println(err)
-		}
-
-		err = ls.Run(os.Stdout, []string{currentDir})
-		if err != nil {
-			fmt.Println(err)
-		}
-	} else {
+	if len(os.Args) >= 2 {
 		path := os.Args[1:]
 
 		err := ls.Run(os.Stdout, path)
 		if err != nil {
-			fmt.Println(err)
+			log.Println(err)
 		}
+		return
+	}
+	currentDir, err := os.Getwd()
+	if err != nil {
+		log.Println(err)
+	}
+
+	err = ls.Run(os.Stdout, []string{currentDir})
+	if err != nil {
+		log.Println(err)
 	}
 }

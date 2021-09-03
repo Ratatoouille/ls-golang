@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// exists check file is exist
 func exists(root string) (bool, error) {
 	_, err := os.Stat(root)
 	if err != nil {
@@ -17,6 +18,7 @@ func exists(root string) (bool, error) {
 	return true, nil
 }
 
+// isDir check file is directory
 func isDir(root string) (bool, error) {
 	fileInfo, err := os.Stat(root)
 	if err != nil {
