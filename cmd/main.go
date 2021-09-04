@@ -8,7 +8,7 @@ import (
 
 func main() {
 	if len(os.Args) >= 2 {
-		path := os.Args[1:]
+		path := os.Args[2:]
 
 		err := ls.Run(os.Stdout, path)
 		if err != nil {

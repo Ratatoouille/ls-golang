@@ -7,7 +7,7 @@ import (
 	f "unix-ls/cmd/files"
 )
 
-func readDir(root string) (f.FilesSlice, error) {
+func readDir(root string, flag bool) (f.FilesSlice, error) {
 	if exist, err := exists(root); exist && err == nil {
 		if isDirectory, err := isDir(root); isDirectory && err == nil {
 			var files f.FilesSlice
@@ -21,7 +21,9 @@ func readDir(root string) (f.FilesSlice, error) {
 
 			if osName != "windows" {
 				for _, file := range fileInfo {
-					if hidden := isHiddenUnix(file.Name()); !hidden {
+					if flag {
+						files.AddItem(file.Name())
+					} else if hidden := isHiddenUnix(file.Name()); !hidden {
 						files.AddItem(file.Name())
 					}
 				}
