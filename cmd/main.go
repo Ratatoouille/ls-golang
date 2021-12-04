@@ -3,25 +3,23 @@ package main
 import (
 	"log"
 	"os"
-	"unix-ls/cmd/ls"
+	"unix-ls/pkg/ls"
 )
 
 func main() {
-	if len(os.Args) >= 2 {
-		path := os.Args[2:]
+	var path []string
 
-		err := ls.Run(os.Stdout, path)
+	if len(os.Args) >= 2 {
+		path = append(path, os.Args[1:]...)
+	} else {
+		cDir, err := os.Getwd()
 		if err != nil {
 			log.Println(err)
 		}
-		return
-	}
-	currentDir, err := os.Getwd()
-	if err != nil {
-		log.Println(err)
+		path = append(path, cDir)
 	}
 
-	err = ls.Run(os.Stdout, []string{currentDir})
+	err := ls.Ls(path)
 	if err != nil {
 		log.Println(err)
 	}
